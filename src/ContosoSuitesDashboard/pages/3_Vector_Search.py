@@ -49,14 +49,20 @@ def main():
             if query:
                 # Vectorize the query text.
                 # Exercise 3 Task 3 TODO #4: Get the vectorized query text by calling handle_query_vectorization.
-                
+                print("Before 1")
+                query_vector = handle_query_vectorization(query)
+                print(query_vector)
                 # Perform the vector search.
                 # Exercise 3 Task 3 TODO #5: Get the vector search results by calling handle_vector_search.
-                
+                print("Before 2")
+                vector_search_results = handle_vector_search(query_vector, max_results, minimum_similarity_score)
+                print(vector_search_results)
                 # Display the results.
+                print("Before 3")
                 st.write("## Results")
                 # Exercise 3 Task 3 TODO #6: Display the results as a table.
-                
+                print("Before 4")
+                st.table(vector_search_results.json())
             else:
                 st.warning("Please enter a query.")
 
